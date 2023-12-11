@@ -1,0 +1,8 @@
+---
+title: "README.md"
+author: "DRD"
+date: "2023-12-10"
+output: html_document
+---
+
+The purpose of the "run_analysis.R" script is to take a set of raw data provided as a part of the assignment (and described in "Codebook.rm") and convert it into a tidy dataset (as described in "Codebook.rm"). The dataset initially starts off in pieces, with 30% of the data in the "test" folder and 70% of the data in the "train" folder. The subject and activity associated with each data point are in separate text files, as are the column labels. The first two parts of the script therefore serve to import the raw test and train data, match them up with their corresponding subject and activity numbers, and appropriately label the columns. There are also a large number of extraneous measurement types, and so all columns that don't correspond to a mean or standard deviation value are discarded. The third and final portion of the script then performs a number of functions. First, it separates the data based on subject ID and activity number, generating a list of 180 elements (6 activities x 30 subjects). For each element of this list, the script then calculates the mean for each of the repeated measurements. These means are then recombined with the subject and activity numbers in a new dataframe. Finally, the activity numbers are converted to a human-readable format before the dataframe exported to a .txt file. See comments within script for the purpose of individual lines of code.
